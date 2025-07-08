@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Fiscal de Mesa 4.0</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background"></div>
+
+  <!-- LOGIN -->
+  <div class="container fade-in" id="login">
+    <h1>ELECCIONES 2025 CASTELLI</h1>
+    <h2>Iniciar sesión como fiscal</h2>
+    <input type="text" id="usuario" placeholder="Usuario" />
+    <input type="password" id="clave" placeholder="Contraseña" />
+    <button onclick="iniciarSesion()">Ingresar</button>
+  </div>
+
+  <!-- MENÚ PRINCIPAL -->
+  <div class="container" id="home" style="display:none">
+    <h1>Mi Fiscal de Mesa 4.0</h1>
+    <button onclick="openIframe('https://elecciones.castelli.gob.ar/acceso.php?origen=m')">Registro de Votos</button>
+    <button onclick="openIframe('https://elecciones.castelli.gob.ar/mesas.php')">Consulta Estadísticas</button>
+    <button onclick="showForm()">Informar votos a Concejales</button>
+    <a href="https://wa.me/542245477140" target="_blank">
+      <button class="whatsapp">📲 Contactar por WhatsApp</button>
+    </a>
+  </div>
+
+  <!-- IFRAME -->
+  <div class="iframe-container" id="iframeView" style="display:none">
+    <button onclick="goHome()">Volver al inicio</button>
+    <iframe id="iframeBox" src=""></iframe>
+  </div>
+
+  <!-- FORMULARIO -->
+  <div class="form-container" id="voteForm" style="display:none">
+    <h2>Informar votos</h2>
+    <input type="text" id="fiscal" placeholder="Nombre del Fiscal" />
+    <input type="number" id="mesa" placeholder="Número de Mesa" />
+    <input type="number" id="cand1" placeholder="Votos Candidato 1" />
+    <input type="number" id="cand2" placeholder="Votos Candidato 2" />
+    <input type="number" id="cand3" placeholder="Votos Candidato 3" />
+    <input type="number" id="blanco" placeholder="Votos en Blanco" />
+    <input type="number" id="nulo" placeholder="Votos Nulos" />
+    <input type="number" id="impugnado" placeholder="Votos Impugnados" />
+    <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+    <button onclick="copiarAlPortapapeles()">Copiar al portapapeles</button>
+    <button onclick="goHome()">Volver al inicio</button>
+    <div id="resumen"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
