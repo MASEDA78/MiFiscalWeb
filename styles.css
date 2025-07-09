@@ -1,14 +1,12 @@
-/* RESET Y BASE */
 body, html {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   height: 100%;
   overflow-x: hidden;
-  background-color: #f4f4f4;
+  background-color: #f4f7fc;
 }
 
-/* FONDO DESENFOCADO */
 .background {
   background-image: url('https://chequeado.com/wp-content/uploads/2023/07/Desinformacion-nuevo-25.png');
   background-size: cover;
@@ -20,8 +18,8 @@ body, html {
   z-index: -1;
 }
 
-/* CONTENEDORES PRINCIPALES */
 .container,
+.iframe-container,
 .form-container {
   max-width: 90%;
   margin: 2rem auto;
@@ -32,83 +30,62 @@ body, html {
   text-align: center;
 }
 
-/* ENCABEZADOS */
 h1, h2 {
   color: #003f7f;
   margin-bottom: 1rem;
 }
 
-/* INPUTS */
 input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
-  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0,123,255,0.5);
-}
-
-/* DESTACAR NOMBRE DEL FISCAL */
-#fiscal {
-  font-weight: bold;
-  border-left: 4px solid #007bff;
-  background-color: #f9f9ff;
-}
-
-/* BOTONES */
 button {
-  display: block;
   width: 100%;
   padding: 12px;
   margin: 10px 0;
   font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
   background: linear-gradient(to right, #007bff, #0056b3);
   color: white;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   cursor: pointer;
-  transition: background 0.3s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background 0.3s;
 }
 
 button:hover {
   background: linear-gradient(to right, #0056b3, #003f7f);
-  transform: translateY(-1px);
 }
 
-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-/* BOTÓN WHATSAPP */
 .whatsapp {
   background-color: #25d366;
-  color: white;
 }
 
-/* RESULTADO / RESUMEN */
 #resumen {
   white-space: pre-wrap;
   margin-top: 1rem;
   font-family: monospace;
-  color: #003f7f;
-  background-color: #eef7ff;
+  background-color: #e6f0ff;
   padding: 1rem;
   border-radius: 8px;
-  text-align: left;
+  color: #002f5f;
 }
 
-/* ANIMACIONES */
+iframe {
+  width: 100%;
+  height: 70vh;
+  border: none;
+  margin-top: 1rem;
+  max-height: 500px;
+}
+
+/* Fade-in animación */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -122,10 +99,9 @@ button:disabled {
   }
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 768px) {
-  .container,
-  .form-container {
+  .container, .iframe-container, .form-container {
     padding: 1rem;
     margin-top: 1rem;
   }
@@ -147,16 +123,16 @@ button:disabled {
     font-size: 14px;
   }
 
-  #resumen {
-    font-size: 14px;
+  iframe {
+    height: 60vh;
   }
 }
 
 @media (max-width: 480px) {
-  .container,
-  .form-container {
+  .container, .iframe-container, .form-container {
     max-width: 95%;
     padding: 0.8rem;
+    margin: 0.5rem auto;
   }
 
   button {
@@ -168,8 +144,7 @@ button:disabled {
     font-size: 13px;
   }
 
-  #resumen {
-    font-size: 13px;
+  iframe {
+    height: 50vh;
   }
 }
-
