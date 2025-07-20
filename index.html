@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,9 +24,6 @@
     <button onclick="openIframe('https://elecciones.castelli.gob.ar/acceso.php?origen=m')">Registro de Votos</button>
     <button onclick="openIframe('https://elecciones.castelli.gob.ar/mesas.php')">Consulta Estadísticas</button>
     <button onclick="showForm()">Informar votos a Concejales</button>
-    <a href="https://wa.me/542245477140" target="_blank">
-      <button class="whatsapp">📲 Contactar por WhatsApp</button>
-    </a>
   </div>
 
   <!-- IFRAME -->
@@ -39,7 +35,10 @@
   <!-- FORMULARIO -->
   <div class="form-container" id="voteForm" style="display:none">
     <h2>Informar votos</h2>
+    <label for="fiscal">Nombre del Fiscal</label>
     <input type="text" id="fiscal" placeholder="Nombre del Fiscal" />
+
+    <label for="mesa">Número de Mesa</label>
     <input type="number" id="mesa" placeholder="Número de Mesa" />
 
     <label for="cand1">1️⃣ Fuerza Patria – Macias, María Eugenia</label>
@@ -54,10 +53,15 @@
     <label for="cand4">4️⃣ Vecinalismo – Camara, Nahuel</label>
     <input type="number" id="cand4" placeholder="Votos Vecinalismo" />
 
+    <label for="blanco">Votos en Blanco</label>
     <input type="number" id="blanco" placeholder="Votos en Blanco" />
+
+    <label for="nulo">Votos Nulos</label>
     <input type="number" id="nulo" placeholder="Votos Nulos" />
+
+    <label for="impugnado">Votos Impugnados</label>
     <input type="number" id="impugnado" placeholder="Votos Impugnados" />
-    <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+
     <button onclick="copiarAlPortapapeles()">Copiar al portapapeles</button>
     <button onclick="goHome()">Volver al inicio</button>
     <div id="resumen"></div>
