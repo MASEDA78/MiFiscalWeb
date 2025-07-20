@@ -1,4 +1,3 @@
-
 function iniciarSesion() {
   const usuario = document.getElementById('usuario').value.trim().toLowerCase();
   const clave = document.getElementById('clave').value.trim();
@@ -77,21 +76,6 @@ function construirMensaje() {
     `⚠️ Impugnados: ${impugnado}\n\n` +
     `🔢 Total de votos: ${total}`
   );
-}
-
-function enviarWhatsApp() {
-  if (!validarCampos()) return;
-  const mensaje = construirMensaje();
-  document.getElementById('resumen').textContent = mensaje;
-
-  if (!confirm("¿Deseás enviar los datos por WhatsApp?")) return;
-
-  const numeroDestino = '542245477140';
-  const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
-
-  limpiarFormulario();
-  setTimeout(goHome, 1000);
 }
 
 function copiarAlPortapapeles() {
