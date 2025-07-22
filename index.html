@@ -1,4 +1,38 @@
-<!-- FORMULARIO -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Fiscal de Mesa 4.0</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background"></div>
+
+  <!-- LOGIN -->
+  <div class="container fade-in" id="login">
+    <h1>ELECCIONES 2025 CASTELLI</h1>
+    <h2>Iniciar sesión como fiscal</h2>
+    <input type="text" id="usuario" placeholder="Usuario" />
+    <input type="password" id="clave" placeholder="Contraseña" />
+    <button onclick="iniciarSesion()">Ingresar</button>
+  </div>
+
+  <!-- MENÚ PRINCIPAL -->
+  <div class="container" id="home" style="display:none">
+    <h1>Mi Fiscal de Mesa 4.0</h1>
+    <button onclick="openIframe('https://elecciones.castelli.gob.ar/acceso.php?origen=m')">Registro de Votos</button>
+    <button onclick="openIframe('https://elecciones.castelli.gob.ar/mesas.php')">Consulta Estadísticas</button>
+    <button onclick="showForm()">Informar votos a Concejales</button>
+  </div>
+
+  <!-- IFRAME -->
+  <div class="iframe-container" id="iframeView" style="display:none">
+    <button onclick="goHome()">Volver al inicio</button>
+    <iframe id="iframeBox" src=""></iframe>
+  </div>
+
+  <!-- FORMULARIO -->
 <div class="form-container" id="voteForm" style="display:none">
   <h2>Informar votos</h2>
 
@@ -35,3 +69,7 @@
 
   <div id="resumen"></div>
 </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
