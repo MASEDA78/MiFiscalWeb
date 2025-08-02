@@ -1,5 +1,4 @@
-
-/* RESET Y BASE */
+/* BASE GENERAL */
 body, html {
   margin: 0;
   padding: 0;
@@ -9,7 +8,6 @@ body, html {
   background-color: #f4f4f4;
 }
 
-/* FONDO DESENFOCADO */
 .background {
   background-image: url('https://chequeado.com/wp-content/uploads/2023/07/Desinformacion-nuevo-25.png');
   background-size: cover;
@@ -21,7 +19,7 @@ body, html {
   z-index: -1;
 }
 
-/* CONTENEDORES PRINCIPALES */
+/* CONTENEDORES */
 .container,
 .form-container {
   max-width: 90%;
@@ -33,13 +31,31 @@ body, html {
   text-align: center;
 }
 
-/* ENCABEZADOS */
+.iframe-container {
+  max-width: 95%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffffec;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* IFRAME AMPLIADO */
+iframe#iframeBox {
+  width: 100%;
+  height: 85vh;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* TEXTO Y BOTONES */
 h1, h2 {
   color: #003f7f;
   margin-bottom: 1rem;
 }
 
-/* INPUTS */
 input {
   width: 100%;
   padding: 10px;
@@ -48,6 +64,7 @@ input {
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
 }
 
 input:focus {
@@ -56,14 +73,12 @@ input:focus {
   box-shadow: 0 0 5px rgba(0,123,255,0.5);
 }
 
-/* DESTACAR NOMBRE DEL FISCAL */
 #fiscal {
   font-weight: bold;
   border-left: 4px solid #007bff;
   background-color: #f9f9ff;
 }
 
-/* BOTONES */
 button {
   display: block;
   width: 100%;
@@ -91,13 +106,11 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* BOTÓN WHATSAPP */
 .whatsapp {
   background-color: #25d366;
   color: white;
 }
 
-/* RESULTADO / RESUMEN */
 #resumen {
   white-space: pre-wrap;
   margin-top: 1rem;
@@ -126,7 +139,8 @@ button:disabled {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .container,
-  .form-container {
+  .form-container,
+  .iframe-container {
     padding: 1rem;
     margin-top: 1rem;
   }
@@ -139,37 +153,32 @@ button:disabled {
     font-size: 1.2rem;
   }
 
-  button {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  input {
-    font-size: 14px;
-  }
-
+  button,
+  input,
   #resumen {
     font-size: 14px;
+  }
+
+  iframe#iframeBox {
+    height: 70vh;
   }
 }
 
 @media (max-width: 480px) {
   .container,
-  .form-container {
+  .form-container,
+  .iframe-container {
     max-width: 95%;
     padding: 0.8rem;
   }
 
-  button {
-    padding: 8px;
-    font-size: 13px;
-  }
-
-  input {
-    font-size: 13px;
-  }
-
+  button,
+  input,
   #resumen {
     font-size: 13px;
+  }
+
+  iframe#iframeBox {
+    height: 65vh;
   }
 }
