@@ -1,3 +1,4 @@
+
 /* RESET Y BASE */
 body, html {
   margin: 0;
@@ -10,7 +11,7 @@ body, html {
 
 /* FONDO DESENFOCADO */
 .background {
-  background-image: url('5bdd03f49946e5bd109c21f015fa230b_L.jpg');
+  background-image: url('https://chequeado.com/wp-content/uploads/2023/07/Desinformacion-nuevo-25.png');
   background-size: cover;
   background-position: center;
   filter: blur(3px) brightness(0.7);
