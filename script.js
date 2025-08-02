@@ -68,10 +68,10 @@ function construirMensaje() {
     `📌 Mesa N°: ${mesa}\n` +
     `👤 Fiscal: *${fiscal}*\n\n` +
     `🗳️ Votos:\n` +
-    `🔷 Fuerza Patria – Macias, María Eugenia: ${cand1}\n` +
+    `🔷 FUERZA PATRIA – Macias, María Eugenia: ${cand1}\n` +
     `🔶 SOMOS BUENOS AIRES – Aristizabal, Juan Martín: ${cand2}\n` +
     `🔺 LLA-PRO – Sosa, Sergio Gustavo: ${cand3}\n` +
-    `🔸 Vecinalismo – Camara, Nahuel: ${cand4}\n\n` +
+    `🔸 UNION LIBERAL – Camara, Nahuel: ${cand4}\n\n` +
     `⬜ En blanco: ${blanco}\n` +
     `❌ Nulos: ${nulo}\n` +
     `⚠️ Impugnados: ${impugnado}\n\n` +
