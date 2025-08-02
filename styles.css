@@ -1,4 +1,3 @@
-/* BASE GENERAL SIN SCROLL */
 html, body {
   margin: 0;
   padding: 0;
@@ -9,7 +8,6 @@ html, body {
   background-color: #f4f4f4;
 }
 
-/* FONDO DIFUMINADO */
 .background {
   background-image: url('https://chequeado.com/wp-content/uploads/2023/07/Desinformacion-nuevo-25.png');
   background-size: cover;
@@ -21,7 +19,6 @@ html, body {
   z-index: -1;
 }
 
-/* CONTENEDORES PRINCIPALES */
 .container,
 .form-container,
 .iframe-container {
@@ -36,13 +33,11 @@ html, body {
   text-align: center;
 }
 
-/* TEXTO Y TITULOS */
 h1, h2 {
   margin-bottom: 1rem;
   color: #003f7f;
 }
 
-/* ENTRADAS */
 input {
   width: 100%;
   margin: 8px 0;
@@ -59,7 +54,12 @@ input:focus {
   box-shadow: 0 0 5px rgba(0,123,255,0.4);
 }
 
-/* BOTONES */
+#fiscal {
+  font-weight: bold;
+  border-left: 4px solid #007bff;
+  background-color: #f9f9ff;
+}
+
 button {
   width: 100%;
   margin: 10px 0;
@@ -80,16 +80,14 @@ button:hover {
   transform: translateY(-1px);
 }
 
-/* IFRAME AJUSTADO AL ESPACIO DISPONIBLE */
 iframe#iframeBox {
   width: 100%;
-  height: calc(100vh - 160px); /* ajustá según el alto de botones/títulos */
+  height: calc(100vh - 160px);
   border: none;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* RESUMEN DE RESULTADOS */
 #resumen {
   white-space: pre-wrap;
   margin-top: 1rem;
@@ -101,7 +99,19 @@ iframe#iframeBox {
   text-align: left;
 }
 
-/* RESPONSIVE EXTRA */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
   h1 { font-size: 1.5rem; }
   h2 { font-size: 1.2rem; }
