@@ -1,92 +1,71 @@
-/* BASE GENERAL */
-body, html {
+/* BASE GENERAL SIN SCROLL */
+html, body {
   margin: 0;
   padding: 0;
+  height: 100vh;
+  width: 100vw;
   font-family: 'Segoe UI', sans-serif;
-  height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: #f4f4f4;
 }
 
+/* FONDO DIFUMINADO */
 .background {
   background-image: url('https://chequeado.com/wp-content/uploads/2023/07/Desinformacion-nuevo-25.png');
   background-size: cover;
   background-position: center;
   filter: blur(3px) brightness(0.7);
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
 }
 
-/* CONTENEDORES */
+/* CONTENEDORES PRINCIPALES */
 .container,
-.form-container {
-  max-width: 90%;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
+.form-container,
 .iframe-container {
-  max-width: 95%;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #ffffffec;
+  width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.94);
   border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
 }
 
-/* IFRAME AMPLIADO */
-iframe#iframeBox {
-  width: 100%;
-  height: 85vh;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* TEXTO Y BOTONES */
+/* TEXTO Y TITULOS */
 h1, h2 {
-  color: #003f7f;
   margin-bottom: 1rem;
+  color: #003f7f;
 }
 
+/* ENTRADAS */
 input {
   width: 100%;
+  margin: 8px 0;
   padding: 10px;
-  margin: 10px 0;
-  font-size: 16px;
-  border: 1px solid #ccc;
   border-radius: 8px;
+  font-size: 15px;
+  border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: all 0.2s ease-in-out;
 }
 
 input:focus {
   outline: none;
   border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  box-shadow: 0 0 5px rgba(0,123,255,0.4);
 }
 
-#fiscal {
-  font-weight: bold;
-  border-left: 4px solid #007bff;
-  background-color: #f9f9ff;
-}
-
+/* BOTONES */
 button {
-  display: block;
   width: 100%;
-  padding: 12px;
   margin: 10px 0;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
   background: linear-gradient(to right, #007bff, #0056b3);
   color: white;
   border: none;
@@ -101,16 +80,16 @@ button:hover {
   transform: translateY(-1px);
 }
 
-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+/* IFRAME AJUSTADO AL ESPACIO DISPONIBLE */
+iframe#iframeBox {
+  width: 100%;
+  height: calc(100vh - 160px); /* ajustá según el alto de botones/títulos */
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.whatsapp {
-  background-color: #25d366;
-  color: white;
-}
-
+/* RESUMEN DE RESULTADOS */
 #resumen {
   white-space: pre-wrap;
   margin-top: 1rem;
@@ -122,63 +101,15 @@ button:disabled {
   text-align: left;
 }
 
-/* ANIMACIONES */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease-out forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVE */
+/* RESPONSIVE EXTRA */
 @media (max-width: 768px) {
-  .container,
-  .form-container,
-  .iframe-container {
-    padding: 1rem;
-    margin-top: 1rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  button,
-  input,
-  #resumen {
-    font-size: 14px;
-  }
-
-  iframe#iframeBox {
-    height: 70vh;
-  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  input, button { font-size: 14px; }
+  iframe#iframeBox { height: 70vh; }
 }
 
 @media (max-width: 480px) {
-  .container,
-  .form-container,
-  .iframe-container {
-    max-width: 95%;
-    padding: 0.8rem;
-  }
-
-  button,
-  input,
-  #resumen {
-    font-size: 13px;
-  }
-
-  iframe#iframeBox {
-    height: 65vh;
-  }
+  input, button { font-size: 13px; }
+  iframe#iframeBox { height: 65vh; }
 }
