@@ -86,7 +86,7 @@ function enviarWhatsApp() {
 
   if (!confirm("¿Deseás enviar los datos por WhatsApp?")) return;
 
-  const numeroDestino = '541168650195';
+  const numeroDestino = '542245477140';
   const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
 
