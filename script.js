@@ -105,7 +105,7 @@ function copiarAlPortapapeles() {
 }
 
 function limpiarFormulario() {
-  ['fiscal', 'mesa', 'cand1', 'cand2', 'cand3', 'cand4', 'blanco', 'nulo', 'impugnado'].forEach(id => {
+  ['fiscal', 'mesa', 'cand1', 'cand2', 'blanco', 'nulo', 'impugnado'].forEach(id => {
     document.getElementById(id).value = '';
   });
   document.getElementById('resumen').textContent = '';
