@@ -36,7 +36,7 @@ function showForm() {
 function validarCampos() {
   const mesa = document.getElementById('mesa').value.trim();
   const fiscal = document.getElementById('fiscal').value.trim();
-  const campos = ['cand1', 'cand3', 'blanco', 'nulo', 'impugnado'];
+  const campos = ['cand1', 'cand2', 'blanco', 'nulo', 'impugnado'];
 
   if (!mesa || !fiscal) {
     alert("Completá el nombre del fiscal y número de mesa.");
@@ -59,12 +59,12 @@ function construirMensaje() {
   const fiscal = document.getElementById('fiscal').value.trim();
   const mesa = document.getElementById('mesa').value.trim();
   const cand1 = parseInt(document.getElementById('cand1').value) || 0;
-  const cand3 = parseInt(document.getElementById('cand3').value) || 0;
+  const cand2 = parseInt(document.getElementById('cand3').value) || 0;
   const blanco = parseInt(document.getElementById('blanco').value) || 0;
   const nulo = parseInt(document.getElementById('nulo').value) || 0;
   const impugnado = parseInt(document.getElementById('impugnado').value) || 0;
 
-  const total = cand1 + cand3 + blanco + nulo + impugnado;
+  const total = cand1 + cand2 + blanco + nulo + impugnado;
   const ahora = new Date().toLocaleString('es-AR');
 
   let mensaje =
@@ -128,7 +128,7 @@ function copiarAlPortapapeles() {
 
 // === LIMPIAR ===
 function limpiarFormulario() {
-  ['fiscal', 'mesa', 'cand1', 'cand3', 'blanco', 'nulo', 'impugnado'].forEach(id => {
+  ['fiscal', 'mesa', 'cand1', 'cand2', 'blanco', 'nulo', 'impugnado'].forEach(id => {
     document.getElementById(id).value = '';
   });
   document.getElementById('resumen').textContent = '';
