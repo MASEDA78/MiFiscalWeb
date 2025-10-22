@@ -1,4 +1,4 @@
-// Número de WhatsApp de destino (puede modificarse sin tocar el resto del código)
+// Número de WhatsApp de destino
 const NUMERO_WHATSAPP = '542245477140';
 
 // === LOGIN ===
