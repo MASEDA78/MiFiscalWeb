@@ -3,12 +3,17 @@ function iniciarSesion() {
   const usuario = document.getElementById('usuario').value.trim().toLowerCase();
   const clave = document.getElementById('clave').value.trim();
 
+  // Testeo en consola
+  console.log("Usuario ingresado:", usuario);
+  console.log("Clave ingresada:", clave);
+
   if (usuario === 'fiscal' && clave === 'f2025') {
     document.getElementById('login').style.display = 'none';
     document.getElementById('home').style.display = 'block';
   } else {
     alert("Usuario o contraseña incorrectos");
   }
+
 }
 
 // === NAVEGACIÓN ===
