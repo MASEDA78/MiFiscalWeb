@@ -1,10 +1,8 @@
-// Número de WhatsApp de destino
-const NUMERO_WHATSAPP = '542245477140';
-
 // === LOGIN ===
 function iniciarSesion() {
   const usuario = document.getElementById('usuario').value.trim().toLowerCase();
   const clave = document.getElementById('clave').value.trim();
+
   if (usuario === 'fiscal' && clave === 'f2025') {
     document.getElementById('login').style.display = 'none';
     document.getElementById('home').style.display = 'block';
@@ -34,7 +32,7 @@ function showForm() {
   document.getElementById('voteForm').style.display = 'block';
 }
 
-// === VALIDACIONES ===
+// === VALIDACIÓN ===
 function validarCampos() {
   const mesa = document.getElementById('mesa').value.trim();
   const fiscal = document.getElementById('fiscal').value.trim();
@@ -65,15 +63,11 @@ function construirMensaje() {
   const blanco = parseInt(document.getElementById('blanco').value) || 0;
   const nulo = parseInt(document.getElementById('nulo').value) || 0;
   const impugnado = parseInt(document.getElementById('impugnado').value) || 0;
+
   const total = cand1 + cand3 + blanco + nulo + impugnado;
 
-  if (total < 10) {
-    alert("El total de votos parece muy bajo. Verificá los datos antes de enviar.");
-    return null;
-  }
-
-  return (
-    `📊 *ELECCIONES 2025 CASTELLI*\n\n` +
+  let mensaje =
+    `📊 ELECCIONES 2025 CASTELLI\n\n` +
     `📌 Mesa N°: ${mesa}\n` +
     `👤 Fiscal: *${fiscal}*\n\n` +
     `🗳️ Votos:\n` +
@@ -82,34 +76,39 @@ function construirMensaje() {
     `⬜ En blanco: ${blanco}\n` +
     `❌ Nulos: ${nulo}\n` +
     `⚠️ Impugnados: ${impugnado}\n\n` +
-    `🔢 Total de votos: ${total}`
-  );
+    `🔢 Total de votos: ${total}`;
+
+  // limpiar caracteres que pueden romper la URL
+  mensaje = mensaje.replace(/[^\w\sáéíóúÁÉÍÓÚñÑ.,:;!()*/-]/g, '');
+
+  return mensaje;
 }
 
 // === ENVÍO POR WHATSAPP ===
 function enviarWhatsApp() {
   if (!validarCampos()) return;
   const mensaje = construirMensaje();
-  if (!mensaje) return;
-
-  document.getElementById('resumen').innerText = mensaje;
+  document.getElementById('resumen').textContent = mensaje;
 
   if (!confirm("¿Deseás enviar los datos por WhatsApp?")) return;
 
-  const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
+  const numeroDestino = '542245477140'; // tu número fijo
+  const url = `https://api.whatsapp.com/send?phone=${numeroDestino}&text=${encodeURIComponent(mensaje)}`;
+
+  // abrir una sola vez, con pequeña pausa para evitar error 429
+  setTimeout(() => {
+    window.open(url, '_blank');
+  }, 500);
 
   limpiarFormulario();
   setTimeout(goHome, 1000);
 }
 
-// === COPIAR AL PORTAPAPELES ===
+// === COPIAR MENSAJE ===
 function copiarAlPortapapeles() {
   if (!validarCampos()) return;
   const mensaje = construirMensaje();
-  if (!mensaje) return;
-
-  document.getElementById('resumen').innerText = mensaje;
+  document.getElementById('resumen').textContent = mensaje;
 
   if (!confirm("¿Deseás copiar los datos al portapapeles?")) return;
 
@@ -118,7 +117,7 @@ function copiarAlPortapapeles() {
     .catch(err => alert("Error al copiar: " + err));
 }
 
-// === LIMPIAR FORMULARIO ===
+// === LIMPIAR ===
 function limpiarFormulario() {
   ['fiscal', 'mesa', 'cand1', 'cand3', 'blanco', 'nulo', 'impugnado'].forEach(id => {
     document.getElementById(id).value = '';
