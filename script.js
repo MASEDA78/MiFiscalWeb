@@ -1,7 +1,7 @@
 function iniciarSesion() {
   const usuario = document.getElementById('usuario').value.trim().toLowerCase();
   const clave = document.getElementById('clave').value.trim();
-  if (usuario === 'fiscal' && clave === 'f2025') {
+  if (usuario === 'fiscal1' && clave === 'f2025') {
     document.getElementById('login').style.display = 'none';
     document.getElementById('home').style.display = 'block';
   } else {
